@@ -1,0 +1,50 @@
+<!doctype html> 
+<html lang="en-US"> 
+<head>
+
+<meta charset="UTF-8"/>
+<title>Fun in the sun</title>
+
+<script type="text/javascript" src="http://cdn-www.livestrong.com/media/js/debug.js"></script>
+
+</head>
+<body>
+
+
+<div id="result"></div>
+
+<script type="text/javascript">
+
+// this is an example of a closure
+(function(){
+
+	// grabbing a reference to the id where the sequence will print
+	var result = document.getElementById("result");
+	// writing the 2 starting numbers for fibonacci sequence
+	result.innerHTML = "0, 1";
+
+	// creating a function, with 3 arguments (first number, second number, count or number of times to run)
+	function fibonacci(a, b, iteration) {
+		// this statement is to allow you to break out of the function when it reaches zero, otherwise there'd be an infinite loop
+		if(iteration == 0) {
+			return;
+		}
+
+		// the math for fibonacci, stored in a variable
+		var answer = a + b;
+		// the result printed on the page, prints itself, then the answer
+		result.innerHTML = result.innerHTML + ", " + answer;
+		// runs the function again, but now the variables have been flipped, so that "b" is passed in first, to be combined with the "answer", and then decremented, since you start with 60 iterations, you need to decrement first, then assign the variable otherwise you'll have an infinite loop
+		fibonacci(b, answer, --iteration);
+	}
+
+	window.onload = function() {
+		fibonacci(0, 1, 60);
+	}
+
+})();
+
+</script>
+
+</body>
+</html>

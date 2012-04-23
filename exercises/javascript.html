@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="result"></div>
+		<script>
+			// grab the target element needed to print out to
+			var target = document.getElementById('result');
+			// create a function that takes in an argument and writes it to the page
+			var print = function(text) {
+				//document.write(foo);
+				target.innerHTML += text + '<br />';
+			};
+			print('fun');
+			print('fun');
+
+			var testArray = ['a','b','c'];
+			//testArray.splice(3,0,'d');
+			testArray.push('d');
+			//testArray.splice(1,1);
+			var boo = testArray.indexOf('b');
+			testArray.splice(boo,1);
+
+			console.log(testArray);
+			console.log(boo);
+
+			if (testArray.indexOf('e') != -1) {
+				print('yes');
+			} else {
+				print('no');
+			}
+
+			for (index in testArray) {
+				print('index ' + index + ' = value ' + testArray[index]);
+			}
+
+			var OfficeSupplies = {
+				type : 'Monitor',
+				brand : 'Apple',
+				size : 27,
+				description : function() {
+					// 'Apple - 27'
+					return this.brand + ' - ' + this.size;
+				}
+			};
+			print(OfficeSupplies.description());
+			for (var prop in OfficeSupplies) {
+				if (typeof OfficeSupplies[prop] === 'function') {
+					print(prop + ': ' + OfficeSupplies[prop]());
+				} else {
+					print(prop + ': ' + OfficeSupplies[prop]);
+				}
+			}
+			var count = 0;
+			var count1 = 0;
+			var test = function() {
+				console.log('whatever ' + count);
+				count++;
+				if (count < 5) {
+					setTimeout(test, 2000);
+				}
+			}
+			var test1 = function() {
+				console.log('test1 ' + count1);
+				count1++;
+				if (count1 >= 5) {
+					clearInterval(foo);
+				}
+			}
+			//setTimeout(test, 2000);
+			//var foo = setInterval(test1, 2000);
+
+			// create function that takes 2 arguments, 1st is function, 2nd is string, which should invoke function and pass in string
+			var functionTest = function(func, str) {
+				return func(str);
+			};
+			functionTest(print, 'water');
+
+
+			
+		</script>
+	</body>
+</html>

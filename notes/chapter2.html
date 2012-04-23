@@ -1,0 +1,359 @@
+<?php
+	include('../globals/globals.php');
+
+	$template_id = "Chapter2";
+	$page_title = "Chapter 2 Notes";
+	$page_script = "chapter2";
+
+	include("../globals/head.php");
+	include("../globals/masthead.php");
+?>
+<article>
+<h3>Variables</h3>
+<p>this is declaration of variables</p>
+<pre>
+var mood;
+var age;
+</pre>
+
+<p>shorthand for declaration of multiple variables</p>
+<pre>var mood, age;</pre>
+
+<p>assigment of variables</p>
+<pre>
+mood = "happy";
+age = 30;
+</pre>
+
+<p>shorthand for assignment of mulitple variables</p>
+<pre>mood = "happy", age = 30;</pre>
+
+<p>this is declaration and assignment of variables</p>
+<pre>
+var mood = "happy";
+var age = 30;
+</pre>
+
+<p>shorthand for declaration and assignment of multiple variables</p>
+<pre>var mood = "happy", age = 30;</pre>
+
+<p>example of bad sytax; causes an error on load</p>
+<pre>var my mood = "happy";</pre>
+
+<h3>Data Types</h3>
+<p>a string literal</p>
+<pre>var age = "thirty three";</pre>
+
+<p>a numeric literal</p>
+<pre>var age = 30;</pre>
+
+<p>example of escaping characters using "\"</p>
+<pre>var height = "about 5'10\" tall";</pre>
+
+<p>example of floating point numbers &amp; negative numbers	</p>
+<pre>
+var age = 33.25;
+var temperature = -20;
+</pre>
+
+<p>boolean</p>
+<pre>var sleeping = true;</pre>
+
+<p>example of the difference between boolean and string</p>
+<p>married is set to true</p>
+<pre>var married = true</pre> 
+
+<p>this case, married is a string containing the word "true"</p>
+<pre>var married = "true"</pre>
+
+<h3>Arrays</h3>
+<p>this sets the variable beatles to an Array with a length of 4</p>
+<pre>var beatles = Array(4);</pre>
+
+<p>this sets the variable beatles to an Array with an undetermined length</p>
+<pre>var beatles = Array();</pre>
+
+<p>populating an array is when you add elements to the Array</p>
+<pre>
+beatles[0] = "John";
+beatles[1] = "Paul";
+beatles[2] = "George";
+beatles[3] = "Ringo";
+</pre>
+
+<p>shorthand for populating an Array</p>
+<pre>var beatles = Array("John", "Paul", "George", "Ringo");</pre>
+
+<p>even shorter version of populating an array</p>
+<pre>var beatles = ["John", "Paul", "George", "Ringo"];</pre>
+
+<p>populating an Array with numeric values</p>
+<pre>var years = Array(1940, 1941, 1942, 1943);</pre>
+
+<p>populating an Array with mixed data types</p>
+<pre>var lennon = Array("John", 1940, false);</pre>
+
+<p>an element of an array can be a variable, this would assign the string John to the first element in the beatles Array</p>
+<pre>
+var name = "John";
+beatles[0] = name;
+</pre>
+
+<p>the value of one array being assigned to an element of another array</p>
+<pre>
+var names = Array("John", "Paul", "George", "Ringo");
+beatles[1] = names[3];
+</pre>
+
+<p>arrays can hold arrays</p>
+<pre>
+var lennon = Array("John", 1940, false);
+var beatles = Array();
+beatles[0] = lennon;
+</pre>
+
+<p>associative arrays</p>
+<pre>
+var lennon = Array();
+lennon["name"] = "John";
+lennon["year"] = 1940;
+lennon["living"] = false;
+</pre>
+
+<p>an associative array containing a numeric array</p>
+<pre>
+var beatles = Array();
+beatles[0] = lennon;
+</pre>
+
+<p>an associative array containing an associative array</p>
+<pre>
+var beatles = Array();
+beatles["vocalist"] = lennon;
+</pre>
+
+<h3>Operations</h3>
+<pre>var total = (1 + 4) * 5;</pre>
+
+<p>calculations with variables</p>
+<pre>
+var fahrenheit = 95;
+var celsius = (fahrenheit - 32) / 1.8;
+</pre>
+
+<p>incrementation</p>
+<pre>var year = year + 1;</pre>
+<p>is the same as</p>
+<pre>year++;</pre>
+
+<p>concatenation</p>
+<pre>
+var message = "I am feeling " + "happy";
+var mood = "happy";
+var message = "I am feeling " + mood;
+</pre>
+
+<p>an example of a numeric literal being converted to a string literal</p>
+<pre>
+var year = 2005;
+var message = "The year is " + year;
+</pre>
+
+<p>an example of concatenation and assignment or addition and assignment using +=</p>
+<pre>
+var year = 2005;
+var message = "The year is ";
+message += year;
+</pre>
+
+<h3>Conditionals</h3>
+<p>if statement</p>
+<pre>
+if (1 > 2) {
+	alert("The world has gone mad");
+};
+</pre>
+
+<p>shorthand if statement</p>
+<pre>if (1 > 2) alert ("The world has gone mad");</pre>
+
+<p>if else statement</p>
+<pre>
+if (1 > 2) {
+	alert("The world has gone mad!");
+} else {
+	alert("All is well with the world");
+};
+</pre>
+
+<p>comparison operators</p>
+<pre>
+var my_mood = "happy";
+var your_mood = "sad";
+if (my_mood == your_mood) {
+	alert("We both feel the same");
+};
+
+if (my_mood != your_mood) {
+	alert("We're feeling different moods.");
+};
+</pre>
+
+<p>logical operators (operands)</p>
+<p>the AND operator holds true if both operands are true</p>
+<pre>
+var num = 22;
+if (num >= 5 && num <= 10) {
+	alert("the number is in the right range");
+};
+</pre>
+
+<p>the OR operator holds true if one operand is true;</p>
+<pre>
+if (num > 10 || num < 5) {
+	alert("The number is not in the right range");
+};
+</pre>
+
+<p>the NOT operator works on single operand; whatever Boolean value is returned gets reversed</p>
+<pre>
+if ( !(1 > 2)) {
+	alert("All is well with the world");
+};
+</pre>
+
+<h3>Looping Statements</h3>
+<p>while loop - will only execute if the condition returns true</p>
+<pre>
+var count = 1;
+ while (count < 11) {
+	alert(count);
+	count++;
+}; 
+</pre>
+
+<p>do...while loop - will execute at least once even if condition is false</p>
+<pre>
+var count = 1;
+do {
+	alert(count);
+	count++;
+} while (count < 1); 
+</pre>
+
+<p>for loop</p>
+<pre>
+for (var count = 1; count < 11; count++) {
+	alert(count);
+};
+</pre>
+
+<p>using a for loop to access an arrays elements</p>
+<pre>
+var beatles = Array("John", "Paul", "George", "Ringo");
+for (var count = 0; count < beatles.length; count++) {
+	alert(beatles[count]);
+};
+</pre>
+
+<h3>Functions</h3>
+<pre>
+function shout() {
+	var beatles = Array("John", "Paul", "George", "Ringo");
+	for (var name = 0; name < beatles.length; name++) {
+		alert(beatles[name]);
+	};
+};
+shout();
+</pre>
+
+<p>example of a function using arguments</p>
+<pre>
+function multiply(num1, num2) {
+	var total = num1 * num2;
+	return total;
+};
+var total = multiply(5,3);
+alert(total);
+
+function convertToCelsius(temp) {
+	var result = temp - 32;
+	result = result / 1.8;
+	return result;
+}
+
+var temp_fahrenheit = 95;
+var temp_celsius = convertToCelsius(temp_fahrenheit);
+alert(temp_celsius);
+</pre>
+
+<p>variable scope</p>
+<pre>
+function square(num) {
+	var total = num * num;
+	return total;
+};
+var total = 50;
+var number = square(20);
+alert(total);
+</pre>
+
+<h3>Objects</h3>
+<p>arrays are native objects, using the new keyword, you can create a new instance of an Array object</p>
+<pre>var beatles = new Array();</pre>
+<p>you can access the length property of an arrays object</p>
+<pre>beatles.length</pre>
+
+<p>Math object</p>
+<pre>
+var num = 7.561;
+var num = Math.round(num);
+alert(num);
+</pre>
+
+<p>Date object</p>
+<pre>
+var current_date = new Date();
+var today = current_date.getHours();
+alert(today);
+</pre>
+
+<p>String Object</p>
+<pre>
+var string1 = new String();
+string1 = "Hello";
+</pre>
+
+<p>length property</p>
+<pre>alert(string1.length);</pre>
+
+<p>charAt() method</p>
+<pre>
+var lastChar = string1.charAt(string1.length - 1);
+alert(lastChar);
+</pre>
+
+<p>charCodeAt() method</p>
+<pre>
+var charCode = string1.charCodeAt(string1.length -1);
+alert(charCode);
+</pre>
+
+<p>fromCharCode() method</p>
+<pre>
+var string1;
+var string1 = String.fromCharCode(65,66,67);
+alert(string1);
+
+var aThruZ = "";
+var charCode;
+for (charcode = 65; charcode <= 90; charcode++) {
+	aThruZ = aThruZ + String.fromCharCode(charcode) + "\n";
+}
+document.write(aThruZ);
+</pre>
+
+<p>host objects are not supplied by the Javascript language, but by the environment in which its running (the browser) <br />examples are Form, Image, Element <br />another type of object though that has access to all information on a web page is the Document object, hence DOM.</p>
+
+</article>
+<?php include("../globals/footer.php"); ?>

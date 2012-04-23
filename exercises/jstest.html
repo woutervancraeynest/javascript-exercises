@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script>
+			function reverse(input) {
+				input = input.toString();
+				var tmp = '';
+				for (var i = input.length; i--;) {
+					tmp += input[i];
+				}
+				return (isNaN(tmp)) ? tmp : parseInt(tmp, 10);
+			}
+			function forEach(array, callback) {
+				for (items in array) {
+					callback.apply(array[items]);
+				}
+			}
+			//forEach([1,2,3], function(){console.log(this.toString())});
+
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

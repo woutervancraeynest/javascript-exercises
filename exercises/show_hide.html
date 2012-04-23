@@ -1,0 +1,64 @@
+<?php
+	include('../globals/globals.php');
+
+	$template_id = "ShowHide";
+	$page_title = "Show/Hide";
+	$page_script = "show_hide";
+
+	include("../globals/head.php");
+	include("../globals/masthead.php");
+?>
+<article>
+	<h3><?php echo $page_title ?></h3>
+	
+	<ul>
+		<li><a href="">link 1</a></li>
+		<li><a href="">link 2</a></li>
+		<li><a href="">link 3</a></li>
+		<li><a href="">link 4</a></li>
+		<li><a href="">link 5</a></li>
+		<li class="hide"><a href="">link 6</a></li>
+		<li class="hide"><a href="">link 7</a></li>
+		<li class="hide"><a href="">link 8</a></li>
+		<li class="hide"><a href="">link 9</a></li>
+		<li class="hide"><a href="">link 10</a></li>
+	</ul>
+	<button id="clickMore">more</button>
+
+	<h4>Source</h4>
+<pre>
+var moreLink;
+window.onload = function() {
+	moreLink = document.getElementById("clickMore");
+	moreLink.onclick = show;
+}
+
+var show = function() {
+	var items = document.getElementsByTagName("li");
+	for (i=0; i &lt; items.length; i++) {
+		//printd(items[i].className);
+		if (items[i].className == "hide") {
+			items[i].style.display = "list-item";
+			moreLink.innerHTML = "less";
+		}
+	}
+	moreLink.onclick = hide;
+	return false;
+}
+
+var hide = function() {
+	var items = document.getElementsByTagName("li");
+	for (i=0; i &lt; items.length; i++) {
+		//printd(items[i].className);
+		if (items[i].className == "hide") {
+			items[i].style.display = "none";
+			moreLink.innerHTML = "more";
+		}
+	}
+	moreLink.onclick = show;
+	return false;
+}
+</pre>
+</article>
+
+<?php include("../globals/footer.php"); ?>

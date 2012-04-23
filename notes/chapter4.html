@@ -1,0 +1,82 @@
+<?php
+	include('../globals/globals.php');
+
+	$template_id = "Chapter4";
+	$page_title = "Chapter 4 Notes";
+	$page_script = "chapter4";
+
+	include("../globals/head.php");
+	include("../globals/masthead.php");
+?>
+<article>
+	<h3>Snapshots</h3>
+	<ul>
+		<li><a href="/ui/images/chapter_4/fireworks.jpg" title="A fireworks display" onclick="showPic(this); return false;">Fireworks</a></li>
+		<li><a href="/ui/images/chapter_4/coffee.jpg" title="A cup of black coffee" onclick="showPic(this); return false;">Coffee</a></li>
+		<li><a href="/ui/images/chapter_4/rose.jpg" title="A red, red rose" onclick="showPic(this); return false;">Rose</a></li>
+		<li><a href="/ui/images/chapter_4/bigben.jpg" title="The famous clock" onclick="showPic(this); return false;">Big Ben</a></li>
+	</ul>
+	<img src="/ui/images/chapter_4/placeholder.gif" alt="my image gallery" id="placeholder" />
+	<p id="description">Choose an image.</p>
+
+<h3>Code Breakdown of the Show Pic Function</h3>
+<p>the function showPic takes 1 argument that will be a node on the page, specifically an &lt;a&gt; tag</p>
+<pre>function showPic(whichPic) {</pre>
+<p>grab the value of the href attribute from the clicked link and store in a variable</p>
+<pre>  var source = whichPic.getAttribute("href");</pre>
+<p>grab a reference to the placeholder image and store</p>
+<pre>  var placeholder = document.getElementById("placeholder");</pre>
+<p>change the src attribute on our placeholder image and set it to our source reference from the value of the href that has been clicked</p>
+<pre>  placeholder.setAttribute("src", source);</pre>
+<p>grab the value of the title attribute from the clicked link and store in a variable</p>
+<pre>  var text = whichPic.getAttribute("title");</pre>
+<p>grab a reference to the placeholder description text</p>
+<pre>  var description = document.getElementById("description");</pre>
+<p>this will grab the valueof the clicked link's title and set it in the placeholder texts text node</p>
+<pre>
+  description.firstChild.nodeValue = text;
+};
+</pre>
+<h3>Count the Body Child Nodes Function</h3>
+<pre>
+function countBodyChildren() {
+</pre>
+<p>grab the &lt;body&gt; tag and store the reference</p>
+<pre>
+  var body_element = document.getElementsByTagName("body")[0];
+</pre>
+<p>returns the number of nodes from the body element array</p>
+<pre>  alert(body_element.childNodes.length);</pre>
+<p>returns the number of the nodeValue (should return 1)</p>
+<pre>
+  alert(body_element.nodeType)
+}
+</pre>
+<p>Call the function on Window load</p>
+<pre>window.onload = countBodyChildren;</pre>
+
+<h3>Notes</h3>
+<p> by attempting to grab the nodeValue of the &lt;p&gt; tag, it returns <i>null</i> because there is no text, it's empty, you need the childNodes value</p>
+<pre>
+alert(description.nodeValue);
+</pre>
+<p>this is the correct way to get the nodeValue of the text from the &lt;p&gt; tag</p>
+<pre>
+alert(description.childNodes[0].nodeValue);
+</pre>
+<p>childNodes[0] == firstChild<br />
+childNodes[childNodes.length-1] == lastChild</p>
+<pre>
+alert(description.firstChild.nodeValue);
+</pre>
+
+<dl>
+	<dt>nodeType</dt>
+	<dd> nodeType returns a number</dd>
+	<dd>Elements have a nodeType value of 1</dd>
+	<dd>Attributes have a nodeType value of 2</dd>
+	<dd>Text nodes have a nodeType value of 3</dd>
+</dl>
+</article>
+
+<?php include("../globals/footer.php"); ?>

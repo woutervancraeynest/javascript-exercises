@@ -1,0 +1,53 @@
+<!doctype>
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="result"></div>
+		<script>
+			var test = 1,
+				test2 = 2;
+			var foo = function(number) {
+				return number;
+			}
+			var print_out = foo(5);
+			//console.log(print_out);
+			
+			var fun = new Array('a', 'b', 'c');
+			var fun = ['a', 'b', 'c'];
+			fun.push('d');
+			//console.log(fun.length);
+			var person = new Object()
+			person.first = 'Freddie';
+			person.last = 'Carthy';
+			var person = {
+				first : 'Greg',
+				last : 'Allen',
+				getFullName : function() {
+					return this.first + ' ' + this.last;
+				}
+
+			};
+			//console.log(Person);
+			var print = function(result) {
+				var element = document.getElementById("result");
+				document.write(result);
+				document.write('<br />');
+			};
+			for (var i = 0, len=fun.length; i<len; i++) {
+				console.log(fun[i]);
+				print('item ' + fun[i]);
+			};
+			for (var name in person) {
+				//console.log(typeof person[name]);
+				if (typeof person[name] === 'string') {
+					print(name + ': ' + person[name]);
+				}
+			};
+			fun.splice(3);
+			fun.pop();
+			print(person.getFullName());
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html> 
+<html lang="en-US"> 
+<head>
+
+<meta charset="UTF-8"/>
+<title>Fun in the sun</title>
+
+<script type="text/javascript" src="http://cdn-www.livestrong.com/media/js/debug.js"></script>
+
+</head>
+<body>
+
+<div id="counter" style="font-size: 30px;"></div>
+
+<script type="text/javascript">
+(function(){
+
+	var container = document.getElementById("counter");
+	var timeEnd = new Date(2010, 10, 29);
+
+	// 1 day     = 86400000 milliseconds
+	// 1 hour    = 3600000 milliseconds
+	// 1 minute  = 60000 milliseconds
+	// 1 second  = 1000 milliseconds
+	function counter() {
+		var timeNow = new Date();
+		var timeDifference = timeEnd.getTime() - timeNow.getTime();
+		
+		var days = Math.floor(timeDifference / 86400000);
+		timeDifference = timeDifference - (days * 86400000);
+		var hours = Math.floor(timeDifference / 3600000);
+		timeDifference = timeDifference - (hours * 3600000);
+		var minutes = Math.floor(timeDifference / 60000);
+		timeDifference = timeDifference - (minutes * 60000);
+		var seconds = Math.floor(timeDifference / 1000);
+
+		container.innerHTML = days+' days &nbsp;&nbsp;'+hours+' hours &nbsp;&nbsp;'+minutes+' minutes &nbsp;&nbsp;'+seconds+ ' seconds';
+	}
+
+	window.onload = function() {
+		window.setInterval(function(){ counter(); }, 1000);
+	}
+
+})();
+</script>
+
+</body>
+</html>

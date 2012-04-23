@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="result"></div>
+		<script>
+			// grab the target element needed to print out to
+			var target = document.getElementById('result');
+			// create a function that takes in an argument and writes it to the page
+			var print = function(text) {
+				//document.write(foo);
+				target.innerHTML += text + '<br />';
+			};
+
+			var bar = function() {
+				print('foo');
+			}
+			var setLimitedTimeout = function(func, delay, limit) {
+				var count = 0;
+				var test = function() {
+					func();
+					count++;
+					if (count < limit) {
+						setTimeout(test, delay);
+					}
+				}
+				setTimeout(test, delay);
+			};
+			setLimitedTimeout(bar, 1000, 10);
+			setLimitedTimeout(function() {
+				print('text');
+			}, 1000, 10);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+header, footer, nav, article, section, aside { display: block; }
+
+html { margin: 0; padding: 0; background-color: #ccc; }
+body { margin: 0; padding: 0; font-family: 'Trebuchet MS'; font-size: 100%; color: #000; }
+
+a { color: #666; }
+
+h1, h2, h3, h4 { text-shadow: 0 -1px 0 rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.8); }
+
+h2, h3, h4 { margin: 0 0 20px; }
+
+ol li li { list-style: none; }
+ol li ul { margin: 0; padding: 0; }
+
+#logo { font-size: 3.5em; font-weight: bold; color: #000; text-shadow: 0 -1px 1px rgba(0,0,0,0.15), 0 1px 1px rgba(255,255,255,0.8); text-decoration: none; }
+
+header { padding: 20px; background-color: #fff; border-bottom: 1px solid #ccc; }
+	header h1 { margin: -10px 0 0; }
+
+article { padding: 40px 20px; border-top: 1px solid #fff; border-bottom: 1px solid #222; }
+
+footer { padding: 20px; background-color: #222; border-top: 1px solid #ccc; color: #fff; }
+	footer p { padding: 10px; background-color: #111; border: 1px solid #000; border-bottom: 1px solid #353535; border-right: 1px solid #353535; border-radius: 5px; -webkit-border-radius: 5px; }
+
+.hide { display: none; }
+
+/* =Page: Show Hide (#ShowHide) */
+#ShowHide article li, #ShowHide article ul { list-style: none; margin-left: 0; margin-bottom: 5px; padding-left: 0; }
+#ShowHide button { margin: 10px 0; padding: 5px 10px; background-color: #000; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; border: 1px solid #000; color: #fff; -moz-box-shadow: 2px 2px 5px rgba(0,0,0,.5); -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.5); font-size: 1em; }
+
+#ShowHide button:active { -webkit-transform: translateY(2px); }
+
+/* =Page: Countdown (#Countdown) */
+#Countdown p span { font-size: 3em; }
+
+/* =Page: Chapter 2 (#Chapter2) */
+#Chapter2 article p { margin: 10px 0 0 20px; }
+#Chapter2 article pre { margin: 5px 0 20px 30px; }
+
+/* =Page: Slider (#Slider) */
+
+/* =Global: Module */
+.Module { position: relative; margin-bottom: 20px; padding-bottom: 19px; background: url(/ui/images/slider/drop-shadows.png) no-repeat left bottom; }
+	.Module .header { padding: 10px; border: 1px solid #666; border-width: 1px 1px 0; }
+		.Module .heading { margin: 0; }
+	.Module .body { padding: 20px 10px; border: 1px solid #666; border-width: 1px; }
+	.Module .Button1 { position: relative; float: right; z-index: 1; margin: -10px -11px 0 0; }
+	.Module .Carousel { padding: 0; }
+	#PrimaryContent .Module { background-position: -980px bottom; }
+	#SecondaryContent .Module { background-position: -1620px bottom; }
+	#SecondaryContent .Module .header { padding: 10px 10px 0px; background-color: #fcfdfd; }
+	#SecondaryContent .Module .body { padding: 10px 10px 16px; background-color: #fcfdfd; border-width: 0 1px 1px; }
+
+/* =Global: Article Preview (.ArticlePreview) */
+.ArticlePreview { position: relative; }
+	.ArticlePreview .meta { font-style: italic; }
+		.ArticlePreview .meta .title { display: block; color: #0c0c0c; }
+		.ArticlePreview .meta .byline {}
+		.ArticlePreview .meta .date { margin-right: 5px; padding-right: 5px; border-right: 1px solid #666; }
+	.ArticlePreview .excerpt {}
+	.ArticlePreview .Thumbnail { position: absolute; top: 0; }
+.ArticlePreview.Inline {}
+	.ArticlePreview.Inline .meta { float: right; margin: 0; }
+		.ArticlePreview.Inline .meta .title {}
+		.ArticlePreview.Inline .meta .byline {}
+		.ArticlePreview.Inline .meta .date {}
+		.ArticlePreview.Inline .meta .views {}
+	.ArticlePreview.Inline .excerpt {}
+	.ArticlePreview.Inline .Thumbnail {}
+
+/* =Global: Carousel */
+.Carousel { position: relative; padding: 0 0 19px; border: none; }
+	.Carousel .window { position: relative; overflow: hidden; height: 100%; padding: 0; }
+	.Carousel .stage { position: absolute; left: 0; padding: 0; margin: 0; width: 9000px; margin-left: 0; }
+	.Carousel .item { float: left; display: inline; border-right: 1px solid #f5f5f5; }
+	.Carousel .item:hover { background-color: #f5f5f5; }
+	.Carousel .prev, .Carousel .next { display: block; width: 22px; height: 40px; position: absolute; top: 50%; margin-top: -20px; background: #fff url(/ui/images/slider/sprite.png) no-repeat; border: 0; text-indent: -5000px; cursor: pointer; }
+	.Carousel .prev { left: 0; background-position: 4px 12px; -moz-border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; -webkit-box-shadow: 4px 0px 10px rgba(0,0,0,.2); -moz-box-shadow: 4px 0px 10px rgba(0,0,0,.2); box-shadow: 4px 0px 10px rgba(0,0,0,.2); }
+	.Carousel .next { right: 0; background-position: -284px 12px; -moz-border-radius: 5px 0 0 5px; -webkit-border-radius: 5px 0 0 5px; border-radius: 5px 0 0 5px;  -webkit-box-shadow: -4px 0px 10px rgba(0,0,0,.2); -moz-box-shadow: -4px 0px 10px rgba(0,0,0,.2); box-shadow: -4px 4px 3px rgba(0,0,0,.2); }
+
+/* @Module: Recommended Article Carousel (#Recommended) */
+#Recommended { width: 662px; }
+#Recommended .Carousel { width: 660px; height: 240px; }
+#Recommended .item { width: 220px; min-height: 240px; }
+#Recommended .ArticlePreview .meta { margin: 160px 10px 0; }

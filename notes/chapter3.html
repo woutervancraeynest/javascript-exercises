@@ -1,0 +1,132 @@
+<?php
+	include('../globals/globals.php');
+
+	$template_id = "Chapter3";
+	$page_title = "Chapter 3 Notes";
+	$page_script = "chapter3";
+
+	include("../globals/head.php");
+	include("../globals/masthead.php");
+?>
+<article>
+
+<p>There are 3 kinds of Objects</p>
+<ol>
+	<li>User-defined Objects</li>
+	<li>Native Objects, such as Math, Array, Date, etc.</li>
+	<li>Host objects supplied by the browser</li>
+</ol>
+
+<h3>Host Objects</h3>
+<p>A couple of host objects are the <em>window</em> object and the <em>document</em> object</p>
+
+<h4>Window Object</h4>
+<dl>
+	<dt>Methods</dt>
+	<dd>open() - window.open();</dd>
+	<dd>blur() - window.blur();</dd>
+</dl>
+	
+<h4>Document Object</h4>
+<p>an object within the browser/window object; </p>
+<dl>
+	<dt>Nodes</dt>
+	<dd>Element Nodes - &lt;ul&gt;, &lt;li&gt;, &lt;p&gt;</dd>
+	<dd>Text nodes - contain the actual content on the web</dd>
+	<dd>Attribute nodes - contain the metadata in an element, such as title="thumbnail"</dd>
+</dl>
+
+<dl>
+	<dt>Methods</dt>
+	<dd>getElementById(); - ex. document.getElementById("<em>id</em>")</dd>
+	<dd>getElementsByTagName(); - will return an array of tags; ex. document.getElementsByTagName("<em>tag</em>");</dd>
+	<dd>getAttribute(); - this can only be used on an object and not the document; ex. object.getAttribute("<em>attribute</em>");</dd>
+	<dd>setAttribute(); - this can only be used on an object and not the document; ex. object.setAttribute("<em>attribute</em>", "<em>value</em>");</dd>
+</dl>
+
+<h3>Examples</h3>
+
+<p>shows the typeof operator to show if its a Boolean, number, etc.</p>
+<pre>alert(typeof document.getElementById("purchases");</pre>
+
+<p>shows the length property on the getElementsByTagName method of the document</p>
+<pre>alert(document.getElementsByTagName("li").length);</pre>
+
+<p>grabs the collection of list items and alerts their type to show they're objects</p>
+<pre>
+for (var i = 0; i < document.getElementsByTagName("li").length; i++) {
+	alert(typeof document.getElementsByTagName("li")[i]);
+}
+</pre>
+
+<p>grabs the collection of list items and alerts their type to show they're objects using shorthand and variables</p>
+<pre>
+var items = document.getElementsByTagName("li");
+for (var i = 0; i < items.length; i++) {
+	alert(typeof items[i]);
+}
+</pre>
+
+<p>grabs all elements on the document using the wildcard tag</p>
+<pre>alert(document.getElementsByTagName("*").length);</pre>
+
+<p>grabs the collection of list items within the ul#purchases, and alerts that they're all objects</p>
+<pre>
+var shopping = document.getElementById("purchases");
+var items = shopping.getElementsByTagName("*");
+alert(items.length);
+for (var i = 0; i < items.length; i++) {
+	alert(typeof items[i]);
+}
+</pre>
+
+<p>grabs the collection of p tags, then alerts the title attributes</p>
+<pre>
+var paragraphs = document.getElementsByTagName("p");
+for (var i = 0; i < paragraphs.length; i++) {
+	alert(paragraphs[i].getAttribute("title"));
+}
+</pre>
+
+<p>this will grab the title attribute from all p tags, checks if title is not equal to null</p>
+<pre>
+var paragraphs = document.getElementsByTagName("p");
+for (var i = 0; i < paragraphs.length; i++) {
+	var title_text = paragraphs[i].getAttribute("title");
+	if (title_text != null) {
+		alert(title_text);
+	}
+}
+</pre>
+
+<p>this will grab the title attribute from all p tags, checks if title exists shows inline if statement</p>
+<pre>
+var paragraphs = document.getElementsByTagName("p");
+for (var i = 0; i < paragraphs.length; i++) {
+	var title_text = paragraphs[i].getAttribute("title");
+	if (title_text) alert(title_text);
+}
+</pre>
+
+<p>this will test to show that setAttribute actually works; returns null and then the value</p>
+<pre>
+var shopping = document.getElementById("purchases");
+alert(shopping.getAttribute("title"));
+shopping.setAttribute("title", "a list of goods");
+alert(shopping.getAttribute("title"));
+</pre>
+
+<p>this will grab the collection of paragraphs, and insert a new title into all paragraphs</p>
+<pre>
+var paragraphs = document.getElementsByTagName("p");
+for (var i = 0; i < paragraphs.length; i++) {
+	var title_text = paragraphs[i].getAttribute("title");
+	if (title_text) {
+		paragraphs[i].setAttribute("title", "brand new title text");
+		alert(paragraphs[i].getAttribute("title"));
+	}
+}
+</pre>
+
+</article>
+<?php include("../globals/footer.php"); ?>

@@ -1,0 +1,191 @@
+<?php
+	include('../globals/globals.php');
+
+	$template_id = "Slider";
+	$page_title = "Slider";
+	$page_script = "slider";
+
+	include("../globals/head.php");
+	include("../globals/masthead.php");
+?>
+<article>
+	<h3><?php echo $page_title ?></h3>
+	<?php /* -----Recommended----- */ ?>
+
+	<section id="Recommended" class="Module">
+		<header class="header"><h3 class="heading Heading2">Recommended For Your Pleasure</h3></header>
+
+		<article class="body Carousel">
+			<div class="window">
+				<ol id="sliderList" class="stage">
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/ccc/fff.jpg&text=No+1" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/999/fff.jpg&text=No+2" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/000/fff.jpg&text=No+3" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/ccc/fff.jpg&text=No+4" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/999/fff.jpg&text=No+5" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/000/fff.jpg&text=No+6" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/ccc/fff.jpg&text=No+7" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/999/fff.jpg&text=No+8" alt="" />
+						</div>
+					</li>
+					<li class="item ArticlePreview">
+						<p class="meta">
+							<a href="" class="Heading5 title">Article Title</a>
+							<a href="" class="byline">By: Dan O'Brien</a></br />
+							<time datetime="" class="date">July 19, 2010</time>
+							<span class="views">125,000</span>
+						</p>
+						<div class="Thumbnail">
+							<img src="http://dummyimage.com/220x150/000/fff.jpg&text=No+9" alt="" />
+						</div>
+					</li>
+				</ol>
+			</div>
+			<button id="prev" class="prev">Previous</button>
+			<button id="next" class="next">Next</button>
+		</article>
+	</section>
+	<?php /* -----end: Recommended----- */ ?>
+	<h4>Source</h4>
+	<pre>
+function slider(itemsPerPage) {
+	// grabbing access to the ol element
+	var sliderList = document.getElementById("sliderList");
+	// grabbing access to the li's within the ol element
+	var listItem = sliderList.getElementsByTagName("li");
+	// grab a reference to the next button for when the user clicks next
+	var nextButton = document.getElementById("next");
+	// grab a reference to the previous button for when the user clicks previous
+	var prevButton = document.getElementById("prev");
+	// setting my page count to 0 as a starting point
+	var pageCount = 0;
+
+	// initializing public variables so that all functions have access to these variables
+	var pageWidth;
+	// this variable is passed in through the function as an argument
+	var itemsPerPage;
+	var listItemWidth;
+	var pageTotal;
+	// calculating the total number of pages for evaluating when the user can and cannot click previous/next
+	var totalNoPages = listItem.length/itemsPerPage;
+
+	// looping through all of the list items to calculate the width of each item
+	for (i=0; i&lt;listItem.length; i++) {
+		// setting the listItemWidth variable to the width of each element
+		listItemWidth = listItem[i].offsetWidth;
+	}
+	// use the width of each li to calculate the width a page will be
+	pageWidth = listItemWidth * itemsPerPage;
+
+	// create an anonymous function for the next button
+	nextButton.onclick = function() {
+		// check to see that that the page count is greater than 0 and never greater than the total number of pages and then increment the page count
+		// there is a - 1 for the total number of pages because I've started the count at 0 which is not the true 1st page
+		if ((totalNoPages - 1) > pageCount > 0) { pageCount++ };
+		// set the left css property of the ol listing to the calculated value
+		// this value is calculated by multiplying the width of each page by the page count; need to concatenate with "px" to correctly set it to a string, as opposed to an integer
+		sliderList.style.left = "-" + (pageWidth * pageCount) + "px";
+
+		//console.log("page count = " + pageCount);
+		//console.log(sliderList.style.left);
+	}
+
+	// create an anonymous function for the previous button
+	prevButton.onclick = function() {
+		// check to see that that the page count is never less than 0 then decrement the page count
+		if (pageCount > 0) { pageCount-- };
+		// set the left css property of the ol listing to the calculated value
+		// this value is calculated by multiplying the width of each page by the page count; need to concatenate with "px" to correctly set it to a string, as opposed to an integer
+		sliderList.style.left = "-" + (pageWidth * pageCount) + "px";
+
+		//console.log("page count = " + pageCount);
+		//console.log(sliderList.style.left);
+	}
+	//console.log("page count = " + pageCount);
+}
+
+window.onload = function() {
+	// run the function on window load with the specified argument (items per page)
+	slider(3);
+}
+	</pre>
+</article>
+<?php include("../globals/footer.php"); ?>
